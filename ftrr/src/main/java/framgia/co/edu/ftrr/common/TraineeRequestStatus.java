@@ -9,21 +9,21 @@ public enum TraineeRequestStatus {
     FINISH(4, "Finish"),
     OTHER(5, "Other");
 
-    private Integer value;
-    private String name;
+    private Integer code;
+    private String value;
 
-    TraineeRequestStatus(Integer value, String name) {
+    TraineeRequestStatus(Integer code, String value) {
+        this.code = code;
         this.value = value;
-        this.name = name;
     }
 
     @JsonValue
-    public Integer getValue() {
+    public Integer getCode() {
+        return this.code;
+    }
+
+    @JsonValue
+    public String getValue() {
         return this.value;
-    }
-
-    @JsonValue
-    public String getName() {
-        return this.name;
     }
 }

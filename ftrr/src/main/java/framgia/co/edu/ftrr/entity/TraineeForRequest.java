@@ -3,6 +3,7 @@ package framgia.co.edu.ftrr.entity;
 import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -25,9 +26,6 @@ public class TraineeForRequest implements java.io.Serializable {
     private Request request;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trainee_id")
-    private User user;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "updated_by")
     private Trainee trainee;
     @Column(name = "status")
     private Integer status;
@@ -39,6 +37,10 @@ public class TraineeForRequest implements java.io.Serializable {
     @Column(name = "updated_at", length = 19)
     @UpdateTimestamp
     private Date updatedAt;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "updated_by")
+    @LastModifiedBy
+    private User updatedBy;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "traineeForRequest")
     private List<ResultInterview> resultInterviews;
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "traineeForRequest")
