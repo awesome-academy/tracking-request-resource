@@ -44,13 +44,12 @@ export class DetailPage extends React.Component {
         </Helmet>
         <div className="row pb-3">
           <div className="col-lg-4 col-md-6 col-sm-12">
-            {error}
-            {loading&& <FormattedMessage {...messages.loading}/>}
-            {request_interviews.id  && <DetailRequest request={request_interviews}/>}
+
+             <DetailRequest error={error} loading={loading} request={request_interviews}/>
           </div>
           <div className="reviews col-lg-8 col-md-6 col-sm-12">
             <Step/>
-            <List/>
+            <List error={error} loading={loading} requestTrainees={request_interviews.traineeForRequests}/>
           </div>
         </div>
       </div>

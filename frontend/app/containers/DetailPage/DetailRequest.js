@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 
 export default class DetailRequest extends Component {
   render() {
-    const { request } = this.props;
+    const { request ,error,loading} = this.props;
     return (
       <div>
         <div className="candidate col-12 bg-white border rounded-lg">
@@ -13,6 +13,9 @@ export default class DetailRequest extends Component {
             <span><FormattedMessage {...messages.titleContainerRequest}/></span>
           </div>
           <div className="candidate__content border rounded-lg pt-2 mt-4 mb-3">
+            {error}
+            {loading&& <FormattedMessage {...messages.loading}/>}
+            {request.id &&
             <div className="container-fluid">
               <p className="candidate__content__item candidate__content__name">{request.language}</p>
               <div className="candidate__content__item candidate__content__code row bg-light">
@@ -24,7 +27,7 @@ export default class DetailRequest extends Component {
               <div className="candidate__content__item candidate__content__deadline row bg-light"><p
                 className="col-6"><FormattedMessage {...messages.requestDeadline}/></p>
                 <p className="col-6">{request.deadline}</p>
-                </div>
+              </div>
               <div className="candidate__content__item candidate__content__status row">
                 <p className="col-6"><FormattedMessage {...messages.requestStatus}/></p>
                 <p className="col-6">{request.status}</p>
@@ -38,9 +41,11 @@ export default class DetailRequest extends Component {
                 <p className="col-6">{request.division}</p>
               </div>
             </div>
+            }
           </div>
         </div>
       </div>
+
     );
   }
 }
