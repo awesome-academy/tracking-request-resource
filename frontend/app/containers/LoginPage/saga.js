@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
-import { urlApi } from 'utils/consonant';
+import { urlApi } from 'utils/constants';
 
 import { LOGIN_REQUEST } from './constants';
 import { loginFail, loginSucess } from './actions';
