@@ -55,7 +55,38 @@ export default defineMessages({
     id: `${scope}.title.list`,
     defaultMessage: 'List trainee',
   },
-
+  noTrainee:{
+    id: `${scope}.trainee.no`,
+    defaultMessage: 'No',
+  },
+  nameTrainee:{
+    id: `${scope}.trainee.name`,
+    defaultMessage: 'Name',
+  },
+  languageTrainee:{
+    id: `${scope}.trainee.language`,
+    defaultMessage: 'Language',
+  },
+  emailTrainee:{
+    id: `${scope}.trainee.email`,
+    defaultMessage: 'Email',
+  },
+  officeTrainee:{
+    id: `${scope}.trainee.office`,
+    defaultMessage: 'Office',
+  },
+  trainerTrainee:{
+    id: `${scope}.trainee.trainer`,
+    defaultMessage: 'Trainer',
+  },
+  statusTrainee:{
+    id: `${scope}.trainee.status`,
+    defaultMessage: 'Status',
+  },
+  actionTrainee:{
+    id: `${scope}.trainee.action`,
+    defaultMessage: 'Action',
+  },
   //other
   noData: {
     id: `${scope}.other.nodata`,
