@@ -8,17 +8,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
 import DetailRequest from './DetailRequest';
 import { fetchRequestInterview } from './actions';
-import { selectDetailPage, selectErrorRequest, selectLoading, selectRequestInterview } from './selectors';
+import { selectErrorRequest, selectLoading, selectRequestInterview } from './selectors';
 import List from './List';
 import Step from './Step';
 
@@ -35,7 +33,7 @@ export class DetailPage extends React.Component {
   }
 
   render() {
-    const { request_interviews,error,loading } = this.props;
+    const { request_interviews, error, loading } = this.props;
     return (
       <div>
         <Helmet>
@@ -44,9 +42,7 @@ export class DetailPage extends React.Component {
         </Helmet>
         <div className="row pb-3">
           <div className="col-lg-4 col-md-6 col-sm-12">
-            {error}
-            {loading&& <FormattedMessage {...messages.loading}/>}
-            {request_interviews.id  && <DetailRequest request={request_interviews}/>}
+            <DetailRequest error={error} loading={loading} request={request_interviews}/>
           </div>
           <div className="reviews col-lg-8 col-md-6 col-sm-12">
             <Step/>
@@ -65,7 +61,7 @@ DetailPage.propTypes = {
 const mapStateToProps = createStructuredSelector({
   request_interviews: selectRequestInterview(),
   error: selectErrorRequest(),
-  loading: selectLoading()
+  loading: selectLoading(),
 });
 
 function mapDispatchToProps(dispatch) {

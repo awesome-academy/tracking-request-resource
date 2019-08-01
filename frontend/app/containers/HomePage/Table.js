@@ -61,6 +61,11 @@ class Table extends Component {
           </tr>
           </thead>
           <tbody>
+          {request_interview.length == 0 &&
+            <p className="font-weight-bold text-danger" style={{fontSize:"18px"}}>
+              <FormattedMessage {...messages.noData} />
+            </p>
+          }
           {interviewsInpage.map((item, idRow) =>
             <tr key={item.id}>
               <td>{interviewPerPage * (interviewCurrentPage - 1) + (idRow + 1)}</td>
@@ -148,11 +153,11 @@ class Table extends Component {
                     </thead>
                     <tbody>
                     {this.state.traineeClick.length > 0 && this.state.traineeClick.map(item =>
-                      <tr>
-                        <td>{item.id}</td>
-                        <td>{item.name}</td>
-                        <td>{item.office}</td>
-                        <td>{item.status}</td>
+                      <tr key={item.id}>
+                        <td>{item.trainee.id}</td>
+                        <td>{item.trainee.name}</td>
+                        <td>{item.trainee.office}</td>
+                        <td>{item.trainee.status}</td>
                       </tr>,
                     )}
                     </tbody>

@@ -77,6 +77,10 @@ export default defineMessages({
     id: `${scope}.table.action`,
     defaultMessage: 'Action',
   },
+  noData: {
+    id: `${scope}.table.noData`,
+    defaultMessage: 'No data of request',
+  },
   searchBranch: {
     id: `${scope}.filter.branch`,
     defaultMessage: 'All Branch',
